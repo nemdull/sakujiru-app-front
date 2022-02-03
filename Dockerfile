@@ -19,4 +19,11 @@ RUN echo ${API_URL}
 
 WORKDIR ${HOME}
 
+COPY package*.json ./
+RUN yarn install
+
+COPY . ./
+
+RUN yarn run build
+
 EXPOSE ${CONTAINER_PORT}
